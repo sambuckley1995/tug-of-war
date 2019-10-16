@@ -36,7 +36,7 @@
 
 		#mug {
 			height: 200px;
-			width: 200px;
+			width: 10vw;
 			position: fixed;
 			bottom: 0;
 			left: 45%;
@@ -79,12 +79,14 @@
 
 
 	function checkWin () {
-	if (left <= 10) {
+	if (left < 0) {
 		win = true;
 		oneWin++;
-	} else if (left >= 80) {
+		alert("You are a hero")
+	} else if (left > 90) {
 		win = true;
 		twoWin++;
+		alert("well done mate")
 	}
 	if (win) {
 		document.getElementById("score1").innerText = `Player one wins: ${oneWin}`;
@@ -95,10 +97,10 @@
 
 	function move(event) {
 		if (event.keyCode === 65) {
-				left --;
+				left -= 5;
 			}
 		if (event.keyCode === 222) {
-			left ++;
+			left += 5;
 			}
 		document.getElementById("mug").style.left = left + "%";
 		checkWin();
